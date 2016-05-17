@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.parking.parking.dao.mapper.ParkingMapper">
+	<resultMap id="parkingMap" type="com.parking.common.domain.Parking">
+		<result property="parkingNo" column="parking_no"/>
+		<result property="userId" column="user_id"/>
+		<result property="address16" column="address_16"/>
+	</resultMap>
+
+ 	<select id="parkingList" resultMap="parkingMap">
+ 		SELECT parking_no parkingNo, user_id userId, address_16 address16
+ 		FROM parking
+ 	</select>
+</mapper>

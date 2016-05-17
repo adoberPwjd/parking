@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.parking.login.dao.mapper.LoginMapper">
+	<resultMap id="userMap" type="com.parking.common.domain.User">
+		<result property="userId" column="user_id"/>
+		<result property="userPw" column="user_pw"/>
+		<result property="email" column="email"/>
+	</resultMap>
+
+ 	<select id="getUser" resultMap="userMap">
+ 		SELECT user_id userId, user_pw userPw, email
+ 		FROM users
+ 		WHERE user_id = #{userId} AND user_pw =#{userPw}
+ 	</select>
+</mapper>
