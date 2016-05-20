@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.parking.address.dao.mapper.ParkingMapper">
+	<resultMap id="addressMap" type="com.parking.common.domain.Address">
+		<result property="address1" column="address_1"/>
+		<result property="address2" column="address_2"/>
+		<result property="address3" column="address_3"/>
+		<result property="address4" column="address_4"/>
+		<result property="address5" column="address_5"/>
+		<result property="address6" column="address_6"/>
+		<result property="address7" column="address_7"/>
+		<result property="address8" column="address_8"/>
+		<result property="address9" column="address_9"/>
+		<result property="address10" column="address_10"/>
+		<result property="address11" column="address_11"/>
+		<result property="address12" column="address_12"/>
+		<result property="address13" column="address_13"/>
+		<result property="address14" column="address_14"/>
+		<result property="address15" column="address_15"/>
+		<result property="address16" column="address_16"/>
+		<result property="address17" column="address_17"/>
+		<result property="address18" column="address_18"/>
+		<result property="address19" column="address_19"/>
+		<result property="address20" column="address_20"/>
+		<result property="address21" column="address_21"/>
+		<result property="address22" column="address_22"/>
+		<result property="address23" column="address_23"/>
+		<result property="address24" column="address_24"/>
+		<result property="address25" column="address_25"/>
+		<result property="address26" column="address_26"/>
+		<result property="address27" column="address_27"/>
+		<result property="address28" column="address_28"/>
+		<result property="address29" column="address_29"/>
+	</resultMap>
+
+ 	<select id="selectAddress2" parameterType="map" resultMap="addressMap">
+		SELECT address_3 address3
+		FROM address
+		WHERE address_2 = #{address2}
+		GROUP BY address_3;	
+ 	</select>
+</mapper>

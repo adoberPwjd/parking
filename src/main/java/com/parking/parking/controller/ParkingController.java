@@ -24,6 +24,7 @@ public class ParkingController {
 		return "parking/parking";
 	}
 	
+
 	//주차장 전체 주차목록 출력
 	@RequestMapping("/parkingList")
 	@ResponseBody

@@ -38,6 +38,7 @@
             value="classpath*:com/parking/login/dao/mapper/**/*.xml" />
     </bean>
     <mybatis:scan base-package="com.parking.login.dao.mapper" />        
+    <mybatis:scan base-package="com.parking.address.dao.mapper" />        
     <mybatis:scan base-package="com.parking.parking.dao.mapper" />        
     <mybatis:scan base-package="com.parking.textToDB.dao.mapper" />        
 	<!-- 2. DB 추가 끝 3/3 -->
