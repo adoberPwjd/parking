@@ -5,10 +5,12 @@
 		<result property="parkingNo" column="parking_no"/>
 		<result property="userId" column="user_id"/>
 		<result property="address16" column="address_16"/>
+		<result property="parkingMax" column="parking_max"/>
+		<result property="parkingCurrent" column="parking_current"/>
 	</resultMap>
 
  	<select id="parkingList" resultMap="parkingMap">
- 		SELECT parking_no parkingNo, user_id userId, address_16 address16
+ 		SELECT parking_no parkingNo, user_id userId, address_16 address16, parking_max parkingMax, parking_current parkingCurrent
  		FROM parking
  	</select>
 </mapper>

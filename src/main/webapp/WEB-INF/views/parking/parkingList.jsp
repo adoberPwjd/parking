@@ -2,36 +2,7 @@
     pageEncoding="UTF-8"%>
 <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
 <h3>주차장</h3>    
-    
-    
-    
-<table id='parkingTable'></table>
-
-
-<script>
-	function parkingList() {
-		$.ajax({
-			url : "/parking/parking/parkingList",
-			method : "GET",
-			success : function(result) {
-
-				for (var i = 0; i < result.length; i++) {
-					$("#parkingTable").append(
-							"<tr>" + "<td>" + result[i].parkingNo + "</td>"
-									+ "<td>" + result[i].userId + "</td>"
-									+ "<td>" + result[i].address16 + "</td>"
-									+ "<tr>"
-
-					);
-				}
-
-			}
-		})
-	}
-	$(document).ready(function() {
-		parkingList();
-	})
-</script>
+  
 <style>
 div {
 	border: 2px solid black;
@@ -68,3 +39,67 @@ div {
 	</tr>
 
 </table>
+ 
+<h3>다른주차장 알아보기</h3>
+<p id="address"></p>  
+<p id='selectAddress16'></p>
+
+
+
+
+
+
+
+<script>
+
+var address2 = "${address2}";
+var address3 = "${address3}";
+var address4 = "${address4}";
+$("#address").append("검색 : "+address2+" "+address3+" "+address4);
+
+<%--쿼리스트링방법 var address3 = "<%=request.getParameter("address3") %>"; --%>
+
+	
+	
+function selectAddress16(){
+	$.ajax({
+		url:"/parking/address/selectAddress16",
+		method:"GET",
+		data:{
+			address2: address2,
+			address3: address3,
+			address4: address4
+		},
+		success: function(result){
+			$("#selectAddress16").html("<table id='selectAddress16Table'></table>");
+			$("#selectAddress16Table").append("<tr><th>번호</th><th>주차장위치</th><th>잔여/전체공간</th><th>제보자</th></tr>");
+
+			for(var i=0; i<result.length; i++){
+				$("#selectAddress16Table").append(					
+						"<tr>"
+						+"<td>"+(i+1)+"</td>"
+						+"<td><a href='#' onclick='selectBtn()'>"+result[i].address16+"</a></td>"
+						+"<td>"+result[i].parkingCurrent +"/"+ result[i].parkingMax+"</td>"
+						+"<td>"+result[i].userId+"</td>"
+						+"</tr>"
+						
+				);
+			}
+
+		}
+	})
+}
+	$(document).ready(function() {
+		selectAddress16();
+	})
+	
+	function selectBtn(){
+	location.href="/parking/parking/parkingList?address2="+address2+"&address3="+address3+"&address4="+address4+""
+}
+	
+</script>
+
+
+
+
+

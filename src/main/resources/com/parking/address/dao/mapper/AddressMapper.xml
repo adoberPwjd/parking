@@ -39,4 +39,19 @@
 		WHERE address_2 = #{address2}
 		GROUP BY address_3
  	</select>
+ 	
+ 	<select id="selectAddress3" parameterType="map" resultMap="addressMap">
+		SELECT address_4 address4
+		FROM address
+		WHERE address_3 = #{address3}
+		GROUP BY address_4
+ 	</select>
+ 	
+ 	<select id="selectAddress16" parameterType="map" resultType="com.parking.common.domain.Parking">
+ 		SELECT p.parking_no parkingNo, p.user_id userId, p.address_16 address16, p.parking_max parkingMax, p.parking_current parkingCurrent
+		FROM address a, parking p
+		WHERE a.address_2=#{address2} AND a.address_3=#{address3} AND a.address_4=#{address4} AND a.address_16 = p.address_16
+ 	</select>
+ 	
+ 	
 </mapper>

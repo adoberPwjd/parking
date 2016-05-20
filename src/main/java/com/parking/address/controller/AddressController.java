@@ -23,4 +23,23 @@ public class AddressController {
 		
 	}
 	
+	
+	@RequestMapping("/selectAddress3")
+	@ResponseBody
+	public List<Address> selelctAddress3(String address3){
+		System.out.println(address3);
+		return addressService.selectAddress3(address3);
+		
+	}
+	
+	@RequestMapping("/selectAddress16")
+	@ResponseBody
+	public List<Address> selectAddress16(String address2, String address3, String address4){
+		System.out.println(address2);
+		System.out.println(address3);
+		System.out.println(address4);
+		return addressService.selectAddress16(address2, address3, address4);
+		
+	}
+	
 }

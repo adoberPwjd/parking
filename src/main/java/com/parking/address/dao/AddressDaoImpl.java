@@ -17,4 +17,17 @@ public class AddressDaoImpl implements AddressDao{
 		return addressMapper.selectAddress2(address2);
 	}
 
+	@Override
+	public List<Address> selectAddress3(String address3) {
+		// TODO Auto-generated method stub
+		return addressMapper.selectAddress3(address3);
+	}
+
+	@Override
+	public List<Address> selectAddress16(String address2, String address3,
+			String address4) {
+		// TODO Auto-generated method stub
+		return addressMapper.selectAddress16(address2, address3, address4);
+	}
+
 }
