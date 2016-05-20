@@ -19,7 +19,6 @@ public class AddressController {
 	@ResponseBody
 	public List<Address> selelctAddress2(String address2){
 		System.out.println(address2);
-		
 		return addressService.selectAddress2(address2);
 		
 	}

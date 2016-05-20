@@ -13,8 +13,9 @@
 
 <script>
 function selectAddress2(){
+	alert($("#selecter :selected").val())
 	$.ajax({
-		url:"/parking/parking/selectAddress2",
+		url:"/parking/address/selectAddress2",
 		method:"GET",
 		data: {
 			address2: $("#selecter :selected").val()
